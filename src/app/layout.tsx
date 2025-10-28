@@ -1,3 +1,5 @@
+import { SmoothScroll,Nav,Menu } from "@/components"; 
+import { TransitionWrapper } from "@/components/wrappers/TransitionWrapper";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
@@ -23,11 +25,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="es" className="dark">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased overflow-hidden`}
       >
-        {children}
+        <SmoothScroll />
+        <Nav />
+        <Menu />
+        <TransitionWrapper>{children}</TransitionWrapper>
       </body>
     </html>
   );
